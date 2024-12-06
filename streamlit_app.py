@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from tqdm import tqdm
 import plotly.express as px
 
 # Function for Select Box
@@ -28,7 +27,7 @@ def process_log_file(file_name):
 
     try:
         file_content = file_name.read().decode("utf-8")
-        for line in tqdm(file_content.splitlines(), desc="Analyzing Data..."):
+        for line in file_content.splitlines():
             parts = line.split(" ", 10)
 
             if len(parts) < 9:
