@@ -41,7 +41,7 @@ def process_log_file(file_name):
             http_protocol = parts[7].strip('"')
             status = parts[8]
             size = parts[9].strip("\n") if len(parts) > 9 else np.nan
-            message = parts[10].strip("\n").strip("") if len(parts) > 10 else np.nan
+            message = parts[10].strip("\n").strip('"').strip('"') if len(parts) > 10 else np.nan
 
             data_rows.append((ip_address, time_stamp, time_zone, method, url, http_protocol, status, size, message))
             row_count += 1
@@ -143,7 +143,7 @@ def main():
             suspicious_activity= data[(data["status"] == "401") | (data["message"] == "Invalid credentials")]
             suspicious_activity = suspicious_activity.groupby("IP_address").size().reset_index(name="Count")
             suspicious_activity = suspicious_activity.sort_values(by="Count", ascending=False).reset_index(drop=True)
-            suspicious_activity = suspicious_activity[failed_attempts["Count"] > attempts]
+            suspicious_activity = suspicious_activity[suspicious_activity["Count"] > attempts]
 
             if len(suspicious_activity) == 0:
                 st.write(":green[No Suspicious Activity Detected]")
@@ -217,3 +217,5 @@ def main():
                 plot_pie_chart(get_timezone_data, 'Count', 'time_zone', f"Top {option_7} Timezone Report", option_7)
 if __name__ == "__main__":
     main()
+    
+    
