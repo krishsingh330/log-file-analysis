@@ -138,9 +138,12 @@ def main():
             st.subheader("Detecting Suspicious Activity")
             attempts = st.number_input("Flagging IP Threshold Attempts", value=10, placeholder="Threshold Attempt Number ...")
             st.write("Flagging IP Threshold Attempts ", attempts)
-            suspicious_activity = data.groupby(["IP_address", "status"]).size().reset_index(name="Count").sort_values(by="Count", ascending=False).reset_index(drop=True)
-            suspicious_activity = suspicious_activity[suspicious_activity["status"] == '401']
-            suspicious_activity = suspicious_activity[suspicious_activity["Count"]>attempts]
+            
+
+            suspicious_activity= data[(data["status"] == "401") | (data["message"] == "Invalid credentials")]
+            suspicious_activity = suspicious_activity.groupby("IP_address").size().reset_index(name="Count")
+            suspicious_activity = suspicious_activity.sort_values(by="Count", ascending=False).reset_index(drop=True)
+            suspicious_activity = suspicious_activity[failed_attempts["Count"] > attempts]
 
             if len(suspicious_activity) == 0:
                 st.write(":green[No Suspicious Activity Detected]")
