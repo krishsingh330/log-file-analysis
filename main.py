@@ -164,5 +164,5 @@ if __name__ == "__main__":
     # e.g., LOG_FILE = "/Users/krishna/Desktop/vrv/sample.log"
     LOG_FILE = "/Users/krishna_macbook/Desktop/vrv_assignment_krishna_singh/sample_log_files/sample.log"
     OUTPUT_FILE = "log_analysis_results.csv"
-    FLAGGING_IP_THRESHOLD_ATTEMPT=0
+    FLAGGING_IP_THRESHOLD_ATTEMPT=10
     save_analysis_to_csv(LOG_FILE, OUTPUT_FILE,FLAGGING_IP_THRESHOLD_ATTEMPT)
