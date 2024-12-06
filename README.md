@@ -102,6 +102,6 @@ streamlit run streamlit_app.py
 Feel free to reach out for any queries or suggestions:
 
 -  Email: krishsingh330@gmail.com
--  LinkedIn: Krishna Singh
--  GitHub: krishsingh330
+-  LinkedIn: [Krishna Singh](https://www.linkedin.com/in/krishna-singh-5b3b67124/)
+-  GitHub: https://github.com/krishsingh330krishsingh330
 
