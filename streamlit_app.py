@@ -136,8 +136,11 @@ def main():
 
             # Detecting Suspicious Activity
             st.subheader("Detecting Suspicious Activity")
-            suspicious_activity = data.groupby(["IP_address", "status"]).size().reset_index(name="Access Count").sort_values(by="Access Count", ascending=False).reset_index(drop=True)
+            attempts = st.number_input("Flagging IP Threshold Attempts", value=10, placeholder="Threshold Attempt Number ...")
+            st.write("Flagging IP Threshold Attempts ", attempts)
+            suspicious_activity = data.groupby(["IP_address", "status"]).size().reset_index(name="Count").sort_values(by="Count", ascending=False).reset_index(drop=True)
             suspicious_activity = suspicious_activity[suspicious_activity["status"] == '401']
+            suspicious_activity = suspicious_activity[suspicious_activity["Count"]>attempts]
 
             if len(suspicious_activity) == 0:
                 st.write(":green[No Suspicious Activity Detected]")
@@ -151,7 +154,7 @@ def main():
                     if option_3 > 10:
                         option_3 = 10
                         st.write("Showing Top 10 Suspicious Activity for Better Chart Clarity")
-                    plot_bar_chart(suspicious_activity, 'Access Count', 'IP_address', f"Top {option_3} Suspicious IP Count", option_3)
+                    plot_bar_chart(suspicious_activity, 'Count', 'IP_address', f"Top {option_3} Suspicious IP Count", option_3)
 
             # URL Report
             st.subheader("URL Report")
