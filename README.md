@@ -91,7 +91,7 @@ streamlit run streamlit_app.py
 -  Required libraries for streamlit_app.py (install via requirements.txt):
     -  pandas
     -  numpy
-    -  plotly
+    -  plotly.express
     -  streamlit
   
 
