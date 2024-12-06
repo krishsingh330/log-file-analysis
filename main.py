@@ -162,7 +162,7 @@ def save_analysis_to_csv(log_file, output_file,threshold_attempt=10):
 if __name__ == "__main__":
     # Specify the path to the log file in the LOG_FILE variable
     # e.g., LOG_FILE = "/Users/krishna/Desktop/vrv/sample.log"
-    LOG_FILE = "/Users/krishna_macbook/Desktop/vrv_assignment_krishna_singh/sample_log_files/sample3.log"
+    LOG_FILE = "/Users/krishna_macbook/Desktop/vrv_assignment_krishna_singh/sample_log_files/sample.log"
     OUTPUT_FILE = "log_analysis_results.csv"
-    FLAGGING_IP_THRESHOLD_ATTEMPT=10
+    FLAGGING_IP_THRESHOLD_ATTEMPT=0
     save_analysis_to_csv(LOG_FILE, OUTPUT_FILE,FLAGGING_IP_THRESHOLD_ATTEMPT)
