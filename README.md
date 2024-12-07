@@ -1,7 +1,8 @@
 # log-file-analysis
-This repository contains Python scripts (main.py & streamlit_app.py) designed to analyze HTTP log files. The analysis includes insights such as request counts per IP, accessed endpoints, suspicious activities, and more.The main.py script is intended for execution in a Python environment (IDLE), fulfilling all the requirements of the assignment. The streamlit_app.py script, on the other hand, is an additional feature that provides an interactive web application for enhanced analysis, which was not part of the assignment requirements. Both scripts are accompanied by sample log files for testing purposes.
+This repository contains Python scripts (main.py & streamlit_app.py) designed to analyze HTTP log files. The analysis includes insights such as request counts per IP, accessed endpoints, suspicious activities, and more. The main.py script is intended for execution in a Python environment (IDLE), fulfilling all the requirements of the assignment. The streamlit_app.py script, on the other hand, is an additional feature that provides an interactive web application for enhanced analysis, which was not part of the assignment requirements. Both scripts are accompanied by sample log files for testing purposes.
 
 Web App Link: https://log-file-analysis.streamlit.app/
+Video Link of project explanation: https://youtu.be/jffKdCNkh04
 ---
 
 ## **Features**  
